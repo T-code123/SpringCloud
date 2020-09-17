@@ -1,0 +1,23 @@
+### 设定启动端口号
+server:
+  port: 25052
+### 设定项目应用名
+spring:
+  application:
+    name: mycloud-register
+### 配置 Eureka Server 信息
+eureka:
+  ### 配置注册中心的主机名
+  instance:
+    hostname: localhost
+  client:
+    ### 由于本项目是注册中心，因此在注册中心中所写的应用不应作为服务暴露出去
+    register-with-eureka: false
+    ### 对于 Spring Cloud 项目来说，是可以存在多个注册中心的
+    ### 不同的注册中心之间可以互相交换所注册的服务
+    ### 但是大部分项目的注册中心只存在一个，因此就不需要去其他注册中心发现服务
+    fetch-registry: false
+    ### 设定 Eureka Client (Provider 和 Consumer) 连接注册中心地址
+    service-url:
+      ### 和 Dubbo 进行远程调用的协议不同， Spring Clound 所使用的的是 http 进行
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka

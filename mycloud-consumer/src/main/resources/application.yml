@@ -1,0 +1,12 @@
+### 启动端口号
+server:
+  port: 11111
+### 项目应用名
+spring:
+  application:
+    name: mycloud-consumer
+### Eureka Client 的配置只需要设定 Eureka Server 连接地址即可
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:25052/eureka/

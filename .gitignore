@@ -1,0 +1,4 @@
+# Project exclude paths
+/mycloud-consumer/target/
+/mycloud-provider/target/
+/mycloud-register/target/
